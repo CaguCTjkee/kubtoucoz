@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8 
+DirectoryIndex index.php
+
+php_value error_reporting "E_ALL"
+
+php_flag magic_quotes_gpc Off 
+php_flag magic_quotes_runtime Off 
+php_flag register_globals Off
+
+Options -Indexes
+
+RewriteEngine    on
+
+RewriteCond %{REQUEST_URI} !^/favicon.ico
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d

@@ -1,0 +1,73 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.hide{
+    display: none;
+}
+
+.container {
+    min-width: 980px;
+    padding: 0 15px;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.settings {
+    float: right;
+}
+.settings a {
+    text-decoration: none;
+}
+.settings a i {
+    top: 2px;
+    position: relative;
+}
+
+.template {
+    display: none;
+    margin: 0 0 20px 0;
+}
+.template .form-group {
+    margin-right: 20px;
+}
+.template .form-group input {
+    position: relative;
+    top: 0px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.pagination #page {
+    text-align: center;
+}
+
+.select-checkbox {
+    padding: 0 !important;
+}
+.select-checkbox label {
+    padding: 10px 19px 5px 20px;
+}
