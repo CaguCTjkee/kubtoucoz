@@ -40,34 +40,39 @@ class uCoz extends Functions {
             preg_match("#href=\"([^\"]+)\"#isu", $post, $href);
             $news['href'] = !empty($href[1]) ? $href[1] : null;
 
-            if( !empty($news['href']) )
+//            if( !empty($news['href']) )
+//            {
+//
+//            }
+//            else
+//            {
+//                preg_match("#class=\"myWinError\">([^<]+)</div>#isu", $post, $error);
+//                if( isset($error[1]) && !empty($error[1]) )
+//                    $this->error('<b>Ошибка:</b> ' . $error[1]);
+//                else
+//                {
+//                    $answer = '<textarea style="width: 100%" rows="10">' . htmlspecialchars($post) . '</textarea>';
+//                    $this->error('Ссылка на материал не найдена, возможно он не добавился.<br>Ответ от козы:<br>' . $answer);
+//                }
+//            }
+
+            $next = false;
+            if( $_POST['post'] )
             {
-                $next = false;
-                if( $_POST['post'] )
-                {
-                    $params = array(
-                        'add' => 'next',
-                        'category' => !empty($_POST['category']) ? $_POST['category'] : null,
-                        'count' => !empty($_POST['count']) ? $_POST['count'] : 10,
-                        'page' => !empty($_POST['page']) ? $_POST['page'] : 1
-                    );
+                $params = array(
+                    'add' => 'next',
+                    'category' => !empty($_POST['category']) ? $_POST['category'] : null,
+                    'count' => !empty($_POST['count']) ? $_POST['count'] : 10,
+                    'page' => !empty($_POST['page']) ? $_POST['page'] : 1
+                );
 
-                    $next = true;
-                    header('Refresh: 25; url=' . $this->config['home'] . '?' . http_build_query($params));
-                }
-                else
-                    unset($_SESSION['post']);
-
-                $this->usuccess($next, $news);
+                $next = true;
+                header('Refresh: 25; url=' . $this->config['home'] . '?' . http_build_query($params));
             }
             else
-            {
-                preg_match("#class=\"myWinError\">([^<]+)</div>#isu", $post, $error);
-                if( isset($error[1]) && !empty($error[1]) )
-                    $this->error('<b>Ошибка:</b> '.$error[1]);
-                else
-                    $this->error('Ссылка на материал не найдена, возможно он не добавился.');
-            }
+                unset($_SESSION['post']);
+
+            $this->usuccess($next, $news);
         }
         else
             $this->error('Проблема с получением ключа сессии.');

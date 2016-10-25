@@ -1,5 +1,5 @@
 {{if $next}}<p>Следующее видео загрузится через <span id="timer_inp">30</span> секунд<span id="secend"></span></p>{{/if}}
-<p>Материал успешно добавлен, перейти к просмотру - <a href="{{$news.href}}" target="_blank">{{$news.title}}</a></p>
+<p>Материал успешно добавлен{{*, перейти к просмотру - <a href="{{$news.href}}" target="_blank">{{$news.title}}</a>*}}.</p>
 {{if $next}}
 <script type="text/javascript">
     function timer() {
